@@ -1,10 +1,22 @@
 // Select tag editor
 
+
+$(".tooltiper").on("mouseover", function () {
+    $(this).tooltip('show');
+});
+
 $(document).on('click', '.sidebar-option', function(){
+    if($(this).attr('data-type')==="intro") {
+        $('#features-section').hide();
+        $('#introduction-section').show();
+    }else{
+        $('#introduction-section').hide();
+        $('#features-section').show();
+        $('.featureoptions').hide();
+        $('#'+$(this).attr('data-type')+'builder').css('display', 'contents');
+    }
     $('.sidebar-option.active').removeClass( "active" );
-    $('.featureoptions').hide();
     $(this).addClass("active");
-    $('#'+$(this).attr('data-type')+'builder').css('display', 'contents');
 });
 
 // Insert speak tag
@@ -19,10 +31,10 @@ $(document).on('click', '.insertTag', function(){
         emphasis: "<speak> I already told you I <emphasis level='"+$("input[name='emphasis-strength']:checked").val()+"'> really like</emphasis> that person.</speak>",
         phoneme: "<speak> You say, <phoneme alphabet='"+$("input[name='phoneme-alphabet']:checked").val()+"' ph='"+$('#phoneme-ph').val()+"'>"+$('#phoneme-word').val()+"</phoneme>.</speak>",
         prosody: "<speak> The following text will be altered <prosody rate='"+$('#prosody-rate').val()+"' volume='"+$('#prosody-volume').val()+"' pitch='"+$('#prosody-pitch').val()+"'>Now you have a different rate, volume and pitch</prosody></speak>",
-        language: "<speak> <lang xml:lang='"+$('#language-id').val()+"'>"+$('#language-text').val()+"</lang>.</speak>",
+        language: "<speak> The correct way to say it is <lang xml:lang='"+$('#language-id').val()+"'>"+$('#language-text').val()+"</lang>.</speak>",
         abbreviation: "<speak>My favorite chemical element is <sub alias='"+$('#abbreviation-alias').val()+"'>"+$('#abbreviation-abbreviation').val()+"</sub>, because it looks so shiny.</speak>",
         whisper: "<speak><amazon:effect name='whispered'>This is a whisper example</amazon:effect></speak>",
-        phonation: "<speak>This is Matthew speaking in my normal voice <amazon:effect phonation='soft'>This is Matthew speaking in my softer voice.</amazon:effect></speak>"
+        phonation: "<speak>This is my normal speaking voice <amazon:effect phonation='soft'>This is me speaking in my softer voice.</amazon:effect></speak>"
     };
 
     if($(this).attr('data-type') === 'break' || $(this).attr('data-type') === 'breath'){

@@ -9,14 +9,15 @@
 <body>
 <header>
     <nav class="navbar navbar-expand navbar-light ">
-        <a class="navbar-brand" href="#"> Amazon Polly Builder</a>
+        <img src="media/aws-logo.png" class="navbar-image"/>
+        <a class="navbar-brand navbar-title"> Amazon Polly Builder</a>
     </nav>
 </header>
 <div class="d-flex">
     <nav class="sidebar bg-dark">
         <ul class="list-unstyled sidebar-options text-center">
-            <li class="sidebar-option" data-type="intro"><a href="#"> Introduction</a></li>
-            <li class="sidebar-option active" data-type="speak"><a href="#"> Speak</a></li>
+            <li class="sidebar-option active" data-type="intro"><a href="#"> Introduction</a></li>
+            <li class="sidebar-option" data-type="speak"><a href="#"> Speak</a></li>
             <li class="sidebar-option" data-type="break"><a href="#"> Break</a></li>
             <li class="sidebar-option" data-type="breath"><a href="#"> Breath</a></li>
             <li class="sidebar-option" data-type="emphasis"><a href="#"> Emphasis</a></li>
@@ -31,10 +32,10 @@
             <div class="language-settings-header py-2">
                 <span>Language Settings</span>
             </div>
-            <div class="language-settings-content py-1">
-                <span>Voice</span>
+            <div class="language-settings-content pt-1">
+                <label for="language-selection">Voice</label>
             </div>
-            <div class="language-settings-content py-1">
+            <div class="language-settings-content mb-5">
                 <select id="language-selection" class="form-control form-control-sm language-select">
                     <optgroup label="English (US)"></optgroup>
                     <option value="Joanna" data-language="en-US" selected="selected">Joanna</option>
@@ -127,16 +128,50 @@
                 </select>
             </div>
         </div>
+        <div class="sidebar-footer text-center">
+            <span>Made with <svg width="1em" height="1em" viewBox="0 0 20 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg> by buzecd@</span>
+        </div>
     </nav>
 
-    <section class="content">
+    <section class="content" id="introduction-section">
+        <div class=" d-flex flex-row" style="height: 90%">
+            <div class="col text-center">
+                <img src="media/banner.png" style="width: 100%;margin-top: 10px;margin-bottom: 10px;">
+                <p style="text-align: justify; padding-left: 50px;padding-right: 50px;">Welcome to the Amazon Polly Builder Demo. As you may or may not know, you can use Amazon Polly to generate speech from either plain text or from documents marked up with Speech Synthesis Markup Language (SSML). The objective of this demo is for you to try out the different SSML tags available in a user friendly way and easily enable you to create enriched speech fragments. Here are the two infrastructure deployment options for this demo. </p>
+                <div class="row">
+                    <div class="col col-5" style="margin: auto">
+                        <h5 class="align-middle">Serve the assets locally</h5>
+                        <p style="text-align: justify;">If you choose to deploy this semi-automated infrastructure, Amazon API Gateway and AWS Lambda (with the appropriate role to call Amazon Polly) will be deployed and configured. You will also have to open the static assets locally on your computer.</p>
+                    </div>
+                    <div class="col col-7">
+                        <img src="media/semi-automated.png" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-5" style="margin: auto">
+                        <h5>Serve the assets from Cloudfront</h5>
+                        <p style="text-align: justify;">If you choose to deploy the fully-automated infrastructure, in addition to the services mentioned in the previous point, an Amazon Cloudfront Distribution will also be deployed to securely access the statics assets that will be stored in an Amazon S3 bucket.</p>
+                    </div>
+                    <div class="col col-7">
+                        <img src="media/fully-automated.png" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="content" id="features-section" style="display: none;">
         <div class=" d-flex flex-row ">
-            <div class="featureoptions" id="speakbuilder" style="display: contents">
+            <div class="featureoptions" id="speakbuilder">
                 <div class="p-2 bd-highlight w-50 ">
                     <div class="card text-center" style="height: 100%">
                         <div class="card-header">
                             SSML Speak Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="The <speak> tag is the root element of all Amazon Polly SSML text. All SSML-enhanced text must be enclosed within a pair of <speak> tags.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title align-middle">No attributes apply</h5>
@@ -150,7 +185,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-speak" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-speak" aria-label="With textarea" placeholder="Press Insert Tag to start" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="speakaudioPlayback" controls style="display: none">
                                 <source id="speakaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -166,6 +201,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Break Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="To add a pause to your text, use the <break> tag. You can set a pause based on strength, or you can set it to a specific length of time in seconds or milliseconds">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card" style="margin-bottom: 15px;">
@@ -221,7 +259,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-break" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-break" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="breakaudioPlayback" controls style="display: none">
                                 <source id="breakaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -237,6 +275,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Breath Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="By adding breathing sounds to synthesized speech, you can make it sound more natural.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card" style="margin-bottom: 15px;">
@@ -337,16 +378,13 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="p-2 bd-highlight w-50">
                     <div class="card text-center " style="height: 100%">
                         <div class="card-header ">
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-breath" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-breath" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="breathaudioPlayback" controls style="display: none">
                                 <source id="breathaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -362,6 +400,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Emphasis Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="Emphasizing words changes the speaking rate and volume. More emphasis makes Amazon Polly speak the text louder and slower. Less emphasis makes it speak quieter and faster.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card">
@@ -388,7 +429,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-emphasis" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-emphasis" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="emphasisaudioPlayback" controls style="display: none">
                                 <source id="emphasisaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -404,6 +445,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Phoneme Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="To make Amazon Polly use phonetic pronunciation for specific text, use the <phoneme> tag. Two attributes are required with the <phoneme> tag. They indicate the phonetic alphabet Amazon Polly uses and the phonetic symbols of the corrected pronunciation">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card">
@@ -443,7 +487,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-phoneme" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-phoneme" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="phonemeaudioPlayback" controls style="display: none">
                                 <source id="phonemeaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -459,6 +503,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Prosody Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="Volume, speech rate, and pitch are dependent on the specific voice selected. In addition to differences between voices for different languages, there are differences between individual voices speaking the same language. Because of this, while attributes are similar across all languages, there are clear variations from language to language and no absolute value is available.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card">
@@ -521,7 +568,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-prosody" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-prosody" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="prosodyaudioPlayback" controls style="display: none">
                                 <source id="prosodyaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -537,6 +584,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Language Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="Foreign language words and phrases are generally spoken better when they are enclosed within a pair of <lang> tags.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card">
@@ -601,7 +651,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-language" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-language" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="languageaudioPlayback" controls style="display: none">
                                 <source id="languageaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -617,6 +667,9 @@
                     <div class="card " style="height: 100%">
                         <div class="card-header text-center">
                             SSML Abbreviation Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="Use the <sub> tag with the alias attribute to substitute a different word (or pronunciation) for selected text such as an acronym or abbreviation.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <div class="card">
@@ -652,7 +705,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-abbreviation" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-abbreviation" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="abbreviationaudioPlayback" controls style="display: none">
                                 <source id="abbreviationaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -668,6 +721,9 @@
                     <div class="card text-center" style="height: 100%">
                         <div class="card-header">
                             SSML Whisper Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="This tag indicates that the input text should be spoken in a whispered voice rather than as normal speech.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title align-middle">No attributes apply</h5>
@@ -681,7 +737,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-whisper" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-whisper" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="whisperaudioPlayback" controls style="display: none">
                                 <source id="whisperaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -697,6 +753,9 @@
                     <div class="card text-center" style="height: 100%">
                         <div class="card-header">
                             SSML Phonation Tag Attributes
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill tooltiper" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-toggle="tooltip" data-placement="right" title="To specify that input text should be spoken in a softer-than-normal voice, use the <amazon:effect phonation='soft'> tag.">
+                                <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title align-middle">No attributes apply</h5>
@@ -710,7 +769,7 @@
                             Text to Speech Preview
                         </div>
                         <div class="card-body">
-                            <textarea class="form-control featuretesttarea" id="ta-phonation" aria-label="With textarea"></textarea>
+                            <textarea class="form-control featuretesttarea" id="ta-phonation" aria-label="With textarea" placeholder="Press Insert Tag to start"></textarea>
                             <audio id="phonationaudioPlayback" controls style="display: none">
                                 <source id="phonationaudioSource" type="audio/mp3" src="">
                             </audio>
@@ -722,7 +781,6 @@
                 </div>
             </div>
         </div>
-
         <div class=" d-flex flex-row">
             <div class="p-2 bd-highlight w-100 h-100 ">
                 <div class="card text-center">
@@ -730,7 +788,7 @@
                         Result
                     </div>
                     <div class="card-body">
-                        <textarea class="form-control textareabox" id="ta-result" aria-label="With textarea"><speak></speak></textarea>
+                        <textarea class="form-control textareabox" id="ta-result" aria-label="With textarea" placeholder="Create your end result inserting your previews"></textarea>
                         <audio id="resultaudioPlayback" controls style="display: none">
                             <source id="resultaudioSource" type="audio/mp3" src="">
                         </audio>
@@ -739,7 +797,6 @@
                         <button class="btn downloadButton" data-type="result">Download</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

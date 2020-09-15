@@ -38,7 +38,7 @@
 .sidebar-language{
     padding: 0;
 }
-.language-settings-content{
+.language-settings-content, .sidebar-footer{
     color: rgba(255, 255, 255, .75);
 }
 .language-select{
@@ -47,6 +47,14 @@
     margin: auto;
 }
 
+.navbar-image{
+    height: 30px;
+    margin-right: 10px;
+}
+.navbar-title{
+    font-weight: 300;
+    color: rgb(49, 46, 41);
+}
 
 input[type=radio]{
     width: auto;
