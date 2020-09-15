@@ -5,7 +5,7 @@ Welcome to the Amazon Polly Builder Demo. As you may or may not know, you can us
 ### Why do I need?
 
 * **Web Browser** I imagine you already have one if you are reading this.  
-* **AWS Account** If you don't already have an account or you have not been handed one as part of a workshop, please visit the following link! 
+* **AWS Account** If you don't already have an account or you have not been handed one as part of a workshop, please visit the following [link](https://aws.amazon.com/es/free)! 
 * **Text editor** Don't worry if you are not a Coding Guru, I promise setting the demo up will be very easy!
 
 
