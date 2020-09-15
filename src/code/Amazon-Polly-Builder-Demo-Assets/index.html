@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polly Test</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand navbar-light ">
+        <a class="navbar-brand" href="#"> Amazon Polly Builder</a>
+    </nav>
+</header>
+<div class="d-flex">
+    <nav class="sidebar bg-dark">
+        <ul class="list-unstyled">
+            <li class="sidebar-option active" data-type="speak"><a href="#"> Speak</a></li>
+            <li class="sidebar-option" data-type="break"><a href="#"> Break</a></li>
+            <li class="sidebar-option" data-type="breath"><a href="#"> Breath</a></li>
+            <li class="sidebar-option" data-type="emphasis"><a href="#"> Emphasis</a></li>
+            <li class="sidebar-option" data-type="phoneme"><a href="#"> Phoneme</a></li>
+            <li class="sidebar-option" data-type="prosody"><a href="#"> Prosody</a></li>
+            <li class="sidebar-option" data-type="language"><a href="#"> Language</a></li>
+            <li class="sidebar-option" data-type="abbreviation"><a href="#"> Abreviation</a></li>
+            <li class="sidebar-option" data-type="whispering"><a href="#"> Whispering</a></li>
+            <li class="sidebar-option" data-type="phonation"><a href="#"> Phonation</a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+
+        <div class=" d-flex flex-row ">
+            <div class="featureoptions" id="speakbuilder" style="display: contents">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card text-center" style="height: 100%">
+                        <div class="card-header">
+                            SSML Speak Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title align-middle">No attributes apply</h5>
+                            <button class="btn insertTag align-middle" data-type="speak">Insert tag</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-speak" aria-label="With textarea"></textarea>
+                            <audio id="speakaudioPlayback" controls style="display: none">
+                                <source id="speakaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="speak">Play</button>
+                            <button class="btn downloadButton" data-type="speak">Download</button>
+                            <button class="btn insertButton" data-type="speak">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="breakbuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Break Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card" style="margin-bottom: 15px;">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto"><label for="break-time-range">Time</label></div>
+                                        <div class="col text-right">
+                                            <label for="break-time-val">
+                                                <button class="btn btn-sm insertTag" data-type="break" data-number="1">Insert tag</button>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <input type="range" min="0" max="10" style="width: 100%;" id="break-time-range">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="number" min="0" max="10" value="5" class="form-control form-control-sm" id="break-time-val" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Strength</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="break" data-number="2">Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="none" checked="checked"> None</label>
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="x-weak"> x-weak</label>
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="weak"> weak</label>
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="medium"> medium</label>
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="strong"> strong</label>
+                                    <label class="radio-inline"><input type="radio" name="break-strength-opt" value="x-strong"> x-strong</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-break" aria-label="With textarea"></textarea>
+                            <audio id="breakaudioPlayback" controls style="display: none">
+                                <source id="breakaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="break">Play</button>
+                            <button class="btn downloadButton" data-type="break">Download</button>
+                            <button class="btn insertButton" data-type="break">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="breathbuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Breath Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card" style="margin-bottom: 15px;">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Manual</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="breath" data-number="1">Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-inline">
+                                                <label for="breath-manual-duration" style="margin-right: 10px;">Duration </label>
+                                                <select id="breath-manual-duration" class="form-control form-control-sm">
+                                                    <option>default</option>
+                                                    <option>x-short</option>
+                                                    <option>short</option>
+                                                    <option>medium</option>
+                                                    <option>long</option>
+                                                    <option>x-long</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-inline">
+                                                <label for="breath-manual-volume" style="margin-right: 10px;">Volume</label>
+                                                <select id="breath-manual-volume" class="form-control form-control-sm">
+                                                    <option>default</option>
+                                                    <option>x-soft</option>
+                                                    <option>soft</option>
+                                                    <option>medium</option>
+                                                    <option>loud</option>
+                                                    <option>x-loud</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Automatic</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="breath" data-number="2">Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-inline">
+                                                <label for="breath-auto-duration" style="margin-right: 5px;">Duration </label>
+                                                <select id="breath-auto-duration" class="form-control form-control-sm">
+                                                    <option>default</option>
+                                                    <option>x-short</option>
+                                                    <option>short</option>
+                                                    <option>medium</option>
+                                                    <option>long</option>
+                                                    <option>x-long</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-inline">
+                                                <label for="breath-auto-volume" style="margin-right: 5px;">Volume</label>
+                                                <select id="breath-auto-volume" class="form-control form-control-sm">
+                                                    <option>default</option>
+                                                    <option>x-soft</option>
+                                                    <option>soft</option>
+                                                    <option>medium</option>
+                                                    <option>loud</option>
+                                                    <option>x-loud</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-inline">
+                                                <label for="breath-auto-frequency" style="margin-right: 5px;">Frequency</label>
+                                                <select id="breath-auto-frequency" class="form-control form-control-sm">
+                                                    <option>default</option>
+                                                    <option>x-low</option>
+                                                    <option>low</option>
+                                                    <option>medium</option>
+                                                    <option>high</option>
+                                                    <option>x-high</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-breath" aria-label="With textarea"></textarea>
+                            <audio id="breathaudioPlayback" controls style="display: none">
+                                <source id="breathaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="breath">Play</button>
+                            <button class="btn downloadButton" data-type="breath">Download</button>
+                            <button class="btn insertButton" data-type="breath">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="emphasisbuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Emphasis Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Level</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="emphasis" >Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <label class="radio-inline"><input type="radio" name="emphasis-strength" value="reduced" checked="checked"> reduced</label>
+                                    <label class="radio-inline"><input type="radio" name="emphasis-strength" value="moderate"> moderate</label>
+                                    <label class="radio-inline"><input type="radio" name="emphasis-strength" value="strong"> strong</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-emphasis" aria-label="With textarea"></textarea>
+                            <audio id="emphasisaudioPlayback" controls style="display: none">
+                                <source id="emphasisaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="emphasis">Play</button>
+                            <button class="btn downloadButton" data-type="emphasis">Download</button>
+                            <button class="btn insertButton" data-type="emphasis">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="phonemebuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Phoneme Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Attributes</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="phoneme" >Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <label class="font-weight-bold mr-1">Alphabet </label>
+                                    <label class="radio-inline"><input type="radio" name="phoneme-alphabet" value="ipa" checked="checked"> ipa</label>
+                                    <label class="radio-inline"><input type="radio" name="phoneme-alphabet" value="x-sampa"> x-sampa</label>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label for="phoneme-ph" class="col-sm-3 col-form-label">Phoneme</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control form-control-sm" id="phoneme-ph">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="phoneme-word" class="col-sm-3 col-form-label">Word</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control form-control-sm" id="phoneme-word">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-phoneme" aria-label="With textarea"></textarea>
+                            <audio id="phonemeaudioPlayback" controls style="display: none">
+                                <source id="phonemeaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="phoneme">Play</button>
+                            <button class="btn downloadButton" data-type="phoneme">Download</button>
+                            <button class="btn insertButton" data-type="phoneme">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="prosodybuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Prosody Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Level</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="prosody" >Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+
+                                    <div class="form-group row">
+                                        <label for="prosody-rate" class="col-sm-3 col-form-label">Rate</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control form-control-sm" id="prosody-rate">
+                                                <option>medium</option>
+                                                <option>x-slow</option>
+                                                <option>slow</option>
+                                                <option>fast</option>
+                                                <option>x-fast</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="prosody-volume" class="col-sm-3 col-form-label">Volume</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control form-control-sm" id="prosody-volume">
+                                                <option>default</option>
+                                                <option>x-soft</option>
+                                                <option>soft</option>
+                                                <option>medium</option>
+                                                <option>loud</option>
+                                                <option>x-loud</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="prosody-pitch" class="col-sm-3 col-form-label">Pitch</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control form-control-sm" id="prosody-pitch">
+                                                <option>default</option>
+                                                <option>x-low</option>
+                                                <option>low</option>
+                                                <option>medium</option>
+                                                <option>high</option>
+                                                <option>x-high</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-prosody" aria-label="With textarea"></textarea>
+                            <audio id="prosodyaudioPlayback" controls style="display: none">
+                                <source id="prosodyaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="prosody">Play</button>
+                            <button class="btn downloadButton" data-type="prosody">Download</button>
+                            <button class="btn insertButton" data-type="prosody">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="languagebuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Language Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Attributes</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="language" >Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <div class="form-group row">
+                                        <label for="language-id" class="col-sm-3 col-form-label">Language</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control form-control-sm" id="language-id">
+                                                <option>cmn-CN</option>
+                                                <option>da-DK</option>
+                                                <option>nl-NL</option>
+                                                <option>en-AU</option>
+                                                <option>en-GB</option>
+                                                <option>en-IN</option>
+                                                <option>en-US</option>
+                                                <option>en-GB-WLS</option>
+                                                <option>fr-FR</option>
+                                                <option>fr-CA</option>
+                                                <option>hi-IN</option>
+                                                <option>de-DE</option>
+                                                <option>is-IS</option>
+                                                <option>it-IT</option>
+                                                <option>ja-JP</option>
+                                                <option>ko-KR</option>
+                                                <option>nb-NO</option>
+                                                <option>pl-PL</option>
+                                                <option>pt-BR</option>
+                                                <option>pt-PT</option>
+                                                <option>ro-RO</option>
+                                                <option>ru-RU</option>
+                                                <option>es-ES</option>
+                                                <option>es-MX</option>
+                                                <option>es-US</option>
+                                                <option>sv-SE</option>
+                                                <option>tr-TR</option>
+                                                <option>cy-GB</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="language-text" class="col-sm-3 col-form-label">Words or text</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control form-control-sm" id="language-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-language" aria-label="With textarea"></textarea>
+                            <audio id="languageaudioPlayback" controls style="display: none">
+                                <source id="languageaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="language">Play</button>
+                            <button class="btn downloadButton" data-type="language">Download</button>
+                            <button class="btn insertButton" data-type="language">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="abbreviationbuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card " style="height: 100%">
+                        <div class="card-header text-center">
+                            SSML Abbreviation Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header options-hd">
+                                    <div class="row">
+                                        <div class="col my-auto">Attributes</div>
+                                        <div class="col text-right">
+                                            <button class="btn btn-sm insertTag" data-type="abbreviation" >Insert tag</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body options-bd" >
+                                    <div class="form-group row">
+                                        <label for="abbreviation-abbreviation" class="col-sm-3 col-form-label">Abbreviation</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control form-control-sm" id="abbreviation-abbreviation">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="abbreviation-alias" class="col-sm-3 col-form-label">Full Word</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control form-control-sm" id="abbreviation-alias">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center " style="height: 100%">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-abbreviation" aria-label="With textarea"></textarea>
+                            <audio id="abbreviationaudioPlayback" controls style="display: none">
+                                <source id="abbreviationaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="abbreviation">Play</button>
+                            <button class="btn downloadButton" data-type="abbreviation">Download</button>
+                            <button class="btn insertButton" data-type="abbreviation">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="whisperingbuilder" >
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card text-center" style="height: 100%">
+                        <div class="card-header">
+                            SSML Whisper Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title align-middle">No attributes apply</h5>
+                            <button class="btn insertTag align-middle" data-type="whisper">Insert tag</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center">
+                        <div class="card-header ">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-whisper" aria-label="With textarea"></textarea>
+                            <audio id="whisperaudioPlayback" controls style="display: none">
+                                <source id="whisperaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="whisper">Play</button>
+                            <button class="btn downloadButton" data-type="whisper">Download</button>
+                            <button class="btn insertButton" data-type="whisper">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featureoptions" id="phonationbuilder">
+                <div class="p-2 bd-highlight w-50 ">
+                    <div class="card text-center" style="height: 100%">
+                        <div class="card-header">
+                            SSML Phonation Tag Attributes
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title align-middle">No attributes apply</h5>
+                            <button class="btn insertTag align-middle" data-type="phonation">Insert tag</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight w-50">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Text to Speech Preview
+                        </div>
+                        <div class="card-body">
+                            <textarea class="form-control featuretesttarea" id="ta-phonation" aria-label="With textarea"></textarea>
+                            <audio id="phonationaudioPlayback" controls style="display: none">
+                                <source id="phonationaudioSource" type="audio/mp3" src="">
+                            </audio>
+                            <button class="btn speakButton" data-type="phonation">Play</button>
+                            <button class="btn downloadButton" data-type="phonation">Download</button>
+                            <button class="btn insertButton" data-type="phonation">Insert in result</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" d-flex flex-row">
+            <div class="p-2 bd-highlight w-100 h-100 ">
+                <div class="card text-center">
+                    <div class="card-header ">
+                        Result
+                    </div>
+                    <div class="card-body">
+                        <textarea class="form-control textareabox" id="ta-result" aria-label="With textarea"><speak></speak></textarea>
+                        <audio id="resultaudioPlayback" controls style="display: none">
+                            <source id="resultaudioSource" type="audio/mp3" src="">
+                        </audio>
+                        <button class="btn speakButton" data-type="result">Play</button>
+                        <button class="btn deleteButton" data-type="result">Delete</button>
+                        <button class="btn downloadButton" data-type="result">Download</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/api-gateway-endpoint.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
