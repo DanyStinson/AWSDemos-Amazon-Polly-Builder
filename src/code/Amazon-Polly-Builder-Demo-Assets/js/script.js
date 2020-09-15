@@ -38,8 +38,17 @@ $(document).on('click', '.insertTag', function(){
 // Play audio
 
 $(document).on('click', '.speakButton', function(){
+    var language = $('#language-selection option:selected').attr("data-language");
+    var voiceid = $('#language-selection').val();
+
     var datatype = $(this).attr('data-type');
-    var data = {"text":$("#ta-"+datatype).val()};
+    var data = {
+        "text":$("#ta-"+datatype).val(),
+        "languagecode":language,
+        "voiceid":voiceid
+    };
+
+
     $.ajax({
         url : apiEndpoint,
         type: "POST",

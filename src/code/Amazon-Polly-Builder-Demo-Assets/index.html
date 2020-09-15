@@ -14,7 +14,8 @@
 </header>
 <div class="d-flex">
     <nav class="sidebar bg-dark">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled sidebar-options text-center">
+            <li class="sidebar-option" data-type="intro"><a href="#"> Introduction</a></li>
             <li class="sidebar-option active" data-type="speak"><a href="#"> Speak</a></li>
             <li class="sidebar-option" data-type="break"><a href="#"> Break</a></li>
             <li class="sidebar-option" data-type="breath"><a href="#"> Breath</a></li>
@@ -26,6 +27,106 @@
             <li class="sidebar-option" data-type="whispering"><a href="#"> Whispering</a></li>
             <li class="sidebar-option" data-type="phonation"><a href="#"> Phonation</a></li>
         </ul>
+        <div class="sidebar-language text-center">
+            <div class="language-settings-header py-2">
+                <span>Language Settings</span>
+            </div>
+            <div class="language-settings-content py-1">
+                <span>Voice</span>
+            </div>
+            <div class="language-settings-content py-1">
+                <select id="language-selection" class="form-control form-control-sm language-select">
+                    <optgroup label="English (US)"></optgroup>
+                    <option value="Joanna" data-language="en-US" selected="selected">Joanna</option>
+                    <option value="Ivy" data-language="en-US">Ivy</option>
+                    <option value="Kendra" data-language="en-US">Kendra</option>
+                    <option value="Kimberly" data-language="en-US">Kimberly</option>
+                    <option value="Salli" data-language="en-US">Salli</option>
+                    <option value="Joey" data-language="en-US">Joey</option>
+                    <option value="Justin" data-language="en-US">Justin</option>
+                    <option value="Matthew" data-language="en-US">Matthew</option>
+                    <optgroup label="Arabic"></optgroup>
+                    <option value="Zeina" data-language="arb">Zeina</option>
+                    <optgroup label="Chinese, Mandarin"></optgroup>
+                    <option value="Zhiyu" data-language="cmn-CN">Zhiyu</option>
+                    <optgroup label="Danish"></optgroup>
+                    <option value="Naja" data-language="da-DK">Naja</option>
+                    <option value="Mads" data-language="da-DK">Mads</option>
+                    <optgroup label="Dutch"></optgroup>
+                    <option value="Lotte" data-language="nl-NL">Lotte</option>
+                    <option value="Ruben" data-language="nl-NL">Ruben</option>
+                    <optgroup label="English (Australian)"></optgroup>
+                    <option value="Russell" data-language="en-AU">Russell</option>
+                    <option value="Nicole" data-language="en-AU">Nicole</option>
+                    <optgroup label="English (British)"></optgroup>
+                    <option value="Amy" data-language="en-GB">Amy</option>
+                    <option value="Emma" data-language="en-GB">Emma</option>
+                    <option value="Brian" data-language="en-GB">Brian</option>
+                    <optgroup label="English (Indian)"></optgroup>
+                    <option value="Aditi" data-language="en-IN">Aditi</option>
+                    <option value="Raveena" data-language="en-IN">Raveena</option>
+                    <optgroup label="English (Welsh)"></optgroup>
+                    <option value="Geraint" data-language="en-GB-WLS">Geraint</option>
+                    <optgroup label="French"></optgroup>
+                    <option value="Celine" data-language="fr-FR">Celine</option>
+                    <option value="Léa" data-language="fr-FR">Léa</option>
+                    <option value="Mathieu" data-language="fr-FR">Mathieu</option>
+                    <optgroup label="French (Canadian)"></optgroup>
+                    <option value="Chantal" data-language="fr-CA">Chantal</option>
+                    <optgroup label="German"></optgroup>
+                    <option value="Marlene" data-language="de-DE">Marlene</option>
+                    <option value="Vicki" data-language="de-DE">Vicki</option>
+                    <option value="Hans" data-language="de-DE">Hans</option>
+                    <optgroup label="Hindi"></optgroup>
+                    <option value="Aditi" data-language="hi-IN">Aditi</option>
+                    <optgroup label="Icelandic"></optgroup>
+                    <option value="Dora" data-language="is-IS">Dora</option>
+                    <option value="Karl" data-language="is-IS">Karl</option>
+                    <optgroup label="Italian"></optgroup>
+                    <option value="Giorgio" data-language="it-IT">Giorgio</option>
+                    <option value="Bianca" data-language="it-IT">Bianca</option>
+                    <optgroup label="Japanese"></optgroup>
+                    <option value="Mizuki" data-language="ja-JP">Mizuki</option>
+                    <option value="Takumi" data-language="ja-JP">Takumi</option>
+                    <optgroup label="Korean"></optgroup>
+                    <option value="Seoyeon" data-language="ko-KR">Seoyeon</option>
+                    <optgroup label="Norwegian"></optgroup>
+                    <option value="Liv" data-language="nb-NO">Liv</option>
+                    <optgroup label="Polish"></optgroup>
+                    <option value="Ewa" data-language="pl-PL">Ewa</option>
+                    <option value="Maja" data-language="pl-PL">Maja</option>
+                    <option value="Jacek" data-language="pl-PL">Jacek</option>
+                    <option value="Jan" data-language="pl-PL">Jan</option>
+                    <optgroup label="Portugese (Brazilian)"></optgroup>
+                    <option value="Vitoria" data-language="pt-BR">Vitoria</option>
+                    <option value="Ricardo" data-language="pt-BR">Ricardo</option>
+                    <optgroup label="Portugese (European)"></optgroup>
+                    <option value="Ines" data-language="pt-PT">Ines</option>
+                    <option value="Cristiano" data-language="pt-PT">Cristiano</option>
+                    <optgroup label="Romanian"></optgroup>
+                    <option value="Carmen" data-language="ro-RO">Carmen</option>
+                    <optgroup label="Russian"></optgroup>
+                    <option value="Tatyana" data-language="ru-RU">Tatyana</option>
+                    <option value="Maxim" data-language="ru-RU">Maxim</option>
+                    <optgroup label="Spanish (European)"></optgroup>
+                    <option value="Conchita" data-language="es-ES">Conchita</option>
+                    <option value="Lucia" data-language="es-ES">Lucia</option>
+                    <option value="Enrique" data-language="es-ES">Enrique</option>
+                    <optgroup label="Spanish (Mexican)"></optgroup>
+                    <option value="Mia" data-language="es-MX">Mia</option>
+                    <optgroup label="Spanish (US)" ></optgroup>
+                    <option value="Lupe" data-language="es-US">Lupe</option>
+                    <option value="Penelope" data-language="es-US">Penelope</option>
+                    <option value="Miguel" data-language="es-US">Miguel</option>
+                    <optgroup label="Swedish" ></optgroup>
+                    <option value="Astrid" data-language="sv-SE">Astrid</option>
+                    <optgroup label="Turkish"></optgroup>
+                    <option value="Filiz" data-language="tr-TR">Filiz</option>
+                    <optgroup label="Welsh" ></optgroup>
+                    <option value="Gwyneth" data-language="cy-GB">Gwyneth</option>
+                </select>
+            </div>
+        </div>
     </nav>
 
     <section class="content">
