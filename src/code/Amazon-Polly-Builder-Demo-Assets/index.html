@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Polly Test</title>
+    <title>Amazon Polly Builder</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -138,12 +138,12 @@
     <section class="content" id="introduction-section">
         <div class=" d-flex flex-row" style="height: 90%">
             <div class="col text-center">
-                <img src="media/banner.png" style="width: 100%;margin-top: 10px;margin-bottom: 10px;">
-                <p style="text-align: justify; padding-left: 50px;padding-right: 50px;">Welcome to the Amazon Polly Builder Demo. As you may or may not know, you can use Amazon Polly to generate speech from either plain text or from documents marked up with Speech Synthesis Markup Language (SSML). The objective of this demo is for you to try out the different SSML tags available in a user friendly way and easily enable you to create enriched speech fragments. Here are the two infrastructure deployment options for this demo. </p>
+                <img src="media/banner.png" style="width: 100%;margin-top: 10px;margin-bottom: 25px;">
+                <p style="text-align: justify; padding-left: 50px;padding-right: 50px;">Welcome to the <a href="https://github.com/DanyStinson/AWSDemos-Amazon-Polly-Builder" target=”_blank”>Amazon Polly Builder Demo</a>. As you may or may not know, you can use Amazon Polly to generate speech from either plain text or from documents marked up with Speech Synthesis Markup Language (SSML). The objective of this demo is for you to try out the different SSML tags available in a user friendly way and easily enable you to create enriched speech fragments. Here are the two infrastructure deployment options for this demo. </p>
                 <div class="row">
                     <div class="col col-5" style="margin: auto">
                         <h5 class="align-middle">Serve the assets locally</h5>
-                        <p style="text-align: justify;">If you choose to deploy this semi-automated infrastructure, Amazon API Gateway and AWS Lambda (with the appropriate role to call Amazon Polly) will be deployed and configured. You will also have to open the static assets locally on your computer.</p>
+                        <p style="text-align: justify; padding-left: 50px;">If you choose to deploy this semi-automated infrastructure, Amazon API Gateway and AWS Lambda (with the appropriate role to call Amazon Polly) will be deployed and configured. You will also have to open the static assets locally on your computer.</p>
                     </div>
                     <div class="col col-7">
                         <img src="media/semi-automated.png" style="width: 100%;">
@@ -152,7 +152,7 @@
                 <div class="row">
                     <div class="col col-5" style="margin: auto">
                         <h5>Serve the assets from Cloudfront</h5>
-                        <p style="text-align: justify;">If you choose to deploy the fully-automated infrastructure, in addition to the services mentioned in the previous point, an Amazon Cloudfront Distribution will also be deployed to securely access the statics assets that will be stored in an Amazon S3 bucket.</p>
+                        <p style="text-align: justify; padding-left: 50px;">If you choose to deploy the fully-automated infrastructure, in addition to the services mentioned in the previous point, an Amazon Cloudfront Distribution will also be deployed to securely access the statics assets that will be stored in an Amazon S3 bucket.</p>
                     </div>
                     <div class="col col-7">
                         <img src="media/fully-automated.png" style="width: 100%;">
